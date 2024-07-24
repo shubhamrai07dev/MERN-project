@@ -5,9 +5,10 @@ import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import cors from 'cors';
+import 'dotenv/config'
 
 const app = express();
-const port = 4001;
+const port = process.env.PORT || 4001;
 app.use(cors())
 
 const __filename = fileURLToPath(import.meta.url);
