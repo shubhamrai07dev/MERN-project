@@ -55,6 +55,11 @@ app.post("/upload", upload.single("file"), (req, res, next) => {
   }
 });
 
+app.get("/", (req, res) => {
+  app.use(express.static(path.resolve(__dirname, "client", "dist")))
+  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
+})
+
 app.listen(port, () => {
   console.log(`app is running on port ${port}`);
 });
